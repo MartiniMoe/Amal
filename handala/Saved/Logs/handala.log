@@ -1,0 +1,384 @@
+﻿Log file open, 04/21/16 16:04:41
+LogInit:Display: Running engine for game: handala
+LogPlatformFile: Not using cached read wrapper
+LogInit:Display: RandInit(-2014038154) SRandInit(-2014038149).
+LogTaskGraph: Started task graph with 4 named threads and 5 total threads.
+LogStats: Stats thread started at 0.035398
+LogInit: Version: 4.11.2-0+UE4
+LogInit: API Version: 0
+LogInit: Compiled (64-bit): Apr 21 2016 13:56:02
+LogInit: Compiled with Clang: 3.8.0 (tags/RELEASE_380/final)
+LogInit: Build Configuration: Development
+LogInit: Branch Name: UE4
+LogInit: Command line: 
+LogInit: Base directory: /home/moritz/git/UnrealEngine/Engine/Binaries/Linux/
+LogInit: Installed Engine Build: 0
+LogInit: Using libcurl 7.46.0
+LogInit:  - built for x86_64-pc-linux-gnu
+LogInit:  - supports SSL with OpenSSL/1.0.2d
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.5
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_TLSAUTH_SRP
+LogInit:  Libcurl: checking if '/etc/pki/tls/certs/ca-bundle.crt' exists
+LogInit:  Libcurl: checking if '/etc/ssl/certs/ca-certificates.crt' exists
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - CertBundlePath = /etc/ssl/certs/ca-certificates.crt  - Libcurl will set CURLOPT_CAINFO to it
+LogInit: Presizing for max 16777216 objects, including 0 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
+LogInit: Object subsystem initialized
+[2016.04.21-13.04.41:958][  0]LogInit: Initializing SDL.
+[2016.04.21-13.04.42:271][  0]LogInit: Initialized SDL 2.0.4 (compiled against 2.0.4)
+[2016.04.21-13.04.42:271][  0]LogInit: Display metrics:
+[2016.04.21-13.04.42:271][  0]LogInit:   PrimaryDisplayWidth: 1920
+[2016.04.21-13.04.42:271][  0]LogInit:   PrimaryDisplayHeight: 1080
+[2016.04.21-13.04.42:271][  0]LogInit:   PrimaryDisplayWorkAreaRect:
+[2016.04.21-13.04.42:271][  0]LogInit:     Left=0, Top=27, Right=1920, Bottom=1080
+[2016.04.21-13.04.42:271][  0]LogInit:   VirtualDisplayRect:
+[2016.04.21-13.04.42:271][  0]LogInit:     Left=0, Top=27, Right=1920, Bottom=1080
+[2016.04.21-13.04.42:271][  0]LogInit:   TitleSafePaddingSize: X=0.000 Y=0.000
+[2016.04.21-13.04.42:271][  0]LogInit:   ActionSafePaddingSize: X=0.000 Y=0.000
+[2016.04.21-13.04.42:271][  0]LogInit:   Number of monitors: 1
+[2016.04.21-13.04.42:271][  0]LogInit:     Monitor 0
+[2016.04.21-13.04.42:271][  0]LogInit:       Name: 0
+[2016.04.21-13.04.42:271][  0]LogInit:       ID: display0
+[2016.04.21-13.04.42:271][  0]LogInit:       NativeWidth: 1920
+[2016.04.21-13.04.42:271][  0]LogInit:       NativeHeight: 1080
+[2016.04.21-13.04.42:271][  0]LogInit:       bIsPrimary: true
+[2016.04.21-13.04.42:272][  0]LogLinux: Selected Device Profile: [Linux]
+[2016.04.21-13.04.42:272][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Linux]
+[2016.04.21-13.04.42:282][  0]LogInit: Linux hardware info:
+[2016.04.21-13.04.42:282][  0]LogInit:  - we are the first instance of this executable
+[2016.04.21-13.04.42:282][  0]LogInit:  - this process' id (pid) is 17211, parent process' id (ppid) is 1
+[2016.04.21-13.04.42:282][  0]LogInit:  - we are not running under debugger
+[2016.04.21-13.04.42:282][  0]LogInit:  - machine network name is 'moritz-T450s'
+[2016.04.21-13.04.42:282][  0]LogInit:  - user name is 'moritz' (moritz)
+[2016.04.21-13.04.42:282][  0]LogInit:  - we're logged in locally
+[2016.04.21-13.04.42:282][  0]LogInit:  - Number of physical cores available for the process: 2
+[2016.04.21-13.04.42:282][  0]LogInit:  - Number of logical cores available for the process: 4
+[2016.04.21-13.04.42:282][  0]LogInit:  - Cache line size: 64
+[2016.04.21-13.04.42:282][  0]LogInit:  - Memory allocator used: jemalloc
+[2016.04.21-13.04.42:282][  0]LogLinux: Benchmarking clocks
+[2016.04.21-13.04.42:382][  0]LogLinux:  - CLOCK_REALTIME (id=0) can sustain 42973826 (42974K, 43M) calls per second without zero deltas
+[2016.04.21-13.04.42:482][  0]LogLinux:  - CLOCK_MONOTONIC (id=1) can sustain 43384817 (43385K, 43M) calls per second without zero deltas
+[2016.04.21-13.04.42:582][  0]LogLinux:  - CLOCK_MONOTONIC_RAW (id=4) can sustain 9512668 (9513K, 10M) calls per second without zero deltas
+[2016.04.21-13.04.42:683][  0]LogLinux:  - CLOCK_MONOTONIC_COARSE (id=6) can sustain 134124444 (134124K, 134M) calls per second with 99.999806% zero deltas
+[2016.04.21-13.04.42:683][  0]LogInit: Linux-specific commandline switches:
+[2016.04.21-13.04.42:683][  0]LogInit:  -nodwarf (currently OFF): suppress parsing of DWARF debug info (callstacks will be generated faster, but won't have line numbers)
+[2016.04.21-13.04.42:683][  0]LogInit:  -ansimalloc - use malloc()/free() from libc (useful for tools like valgrind and electric fence)
+[2016.04.21-13.04.42:683][  0]LogInit:  -jemalloc - use jemalloc for all memory allocation
+[2016.04.21-13.04.42:683][  0]LogInit:  -binnedmalloc - use binned malloc  for all memory allocation
+[2016.04.21-13.04.42:683][  0]LogInit:  -httpproxy=ADDRESS:PORT - redirects HTTP requests to a proxy (only supported if compiled with libcurl)
+[2016.04.21-13.04.42:683][  0]LogInit:  -reuseconn - allow libcurl to reuse HTTP connections (only matters if compiled with libcurl)
+[2016.04.21-13.04.42:683][  0]LogInit:  -virtmemkb=NUMBER - sets process virtual memory (address space) limit (overrides VirtualMemoryLimitInKB value from .ini)
+[2016.04.21-13.04.42:684][  0]LogInit:  - Physical RAM available (not considering process quota): 8 GB (7683 MB, 7868208 KB, 8057044992 bytes)
+[2016.04.21-13.04.42:696][  0]LogTextLocalizationManager: No specific translations for ('en-US') exist, so ('en') translations will be used.
+[2016.04.21-13.04.43:132][  0]LogRHI: Initializing OpenGL RHI
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_VENDOR: Intel Open Source Technology Center
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_RENDERER: Mesa DRI Intel(R) HD Graphics 5500 (Broadwell GT2) 
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_VERSION: 3.3 (Core Profile) Mesa 11.2.0
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_SHADING_LANGUAGE_VERSION: 3.30
+[2016.04.21-13.04.43:132][  0]LogRHI: OpenGL Extensions:
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_3DFX_texture_compression_FXT1
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_AMD_conservative_depth
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_AMD_draw_buffers_blend
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_AMD_seamless_cubemap_per_texture
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_AMD_shader_trinary_minmax
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_AMD_vertex_shader_layer
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_AMD_vertex_shader_viewport_index
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_ANGLE_texture_compression_dxt3
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_ANGLE_texture_compression_dxt5
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_APPLE_object_purgeable
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_ARB_ES2_compatibility
+[2016.04.21-13.04.43:132][  0]LogRHI:   GL_ARB_ES3_compatibility
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_arrays_of_arrays
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_base_instance
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_blend_func_extended
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_buffer_storage
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_clear_buffer_object
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_clear_texture
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_clip_control
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_compressed_texture_pixel_storage
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_conditional_render_inverted
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_conservative_depth
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_copy_buffer
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_copy_image
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_debug_output
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_depth_buffer_float
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_depth_clamp
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_derivative_control
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_direct_state_access
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_draw_buffers
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_draw_buffers_blend
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_draw_elements_base_vertex
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_draw_indirect
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_draw_instanced
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_explicit_attrib_location
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_explicit_uniform_location
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_fragment_coord_conventions
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_fragment_layer_viewport
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_fragment_shader
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_framebuffer_no_attachments
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_framebuffer_object
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_framebuffer_sRGB
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_get_program_binary
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_get_texture_sub_image
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_gpu_shader5
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_half_float_pixel
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_half_float_vertex
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_instanced_arrays
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_internalformat_query
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_invalidate_subdata
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_map_buffer_alignment
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_map_buffer_range
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_multi_bind
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_multi_draw_indirect
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_occlusion_query2
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_pipeline_statistics_query
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_pixel_buffer_object
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_point_sprite
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_program_interface_query
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_provoking_vertex
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_robustness
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_sample_shading
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_sampler_objects
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_seamless_cube_map
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_seamless_cubemap_per_texture
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_separate_shader_objects
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_atomic_counters
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_bit_encoding
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_clock
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_draw_parameters
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_image_load_store
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_image_size
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_objects
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_storage_buffer_object
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_subroutine
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_texture_image_samples
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shader_texture_lod
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shading_language_420pack
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_shading_language_packing
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_stencil_texturing
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_sync
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_tessellation_shader
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_texture_barrier
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_texture_buffer_object
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_texture_buffer_object_rgb32
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_texture_buffer_range
+[2016.04.21-13.04.43:133][  0]LogRHI:   GL_ARB_texture_compression_bptc
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_compression_rgtc
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_cube_map_array
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_float
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_gather
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_mirror_clamp_to_edge
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_multisample
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_non_power_of_two
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_query_levels
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_query_lod
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_rectangle
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_rg
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_rgb10_a2ui
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_storage
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_storage_multisample
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_swizzle
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_texture_view
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_timer_query
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_transform_feedback2
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_transform_feedback3
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_transform_feedback_instanced
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_uniform_buffer_object
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_vertex_array_bgra
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_vertex_array_object
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_vertex_attrib_binding
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_vertex_shader
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_vertex_type_10f_11f_11f_rev
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_vertex_type_2_10_10_10_rev
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ARB_viewport_array
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ATI_blend_equation_separate
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_ATI_texture_float
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_abgr
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_blend_equation_separate
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_draw_buffers2
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_draw_instanced
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_framebuffer_blit
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_framebuffer_multisample
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_framebuffer_multisample_blit_scaled
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_framebuffer_sRGB
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_packed_depth_stencil
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_packed_float
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_pixel_buffer_object
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_polygon_offset_clamp
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_provoking_vertex
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_shader_integer_mix
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_shader_samples_identical
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_array
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_compression_dxt1
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_compression_rgtc
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_compression_s3tc
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_filter_anisotropic
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_integer
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_sRGB
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_sRGB_decode
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_shared_exponent
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_snorm
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_texture_swizzle
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_timer_query
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_transform_feedback
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_EXT_vertex_array_bgra
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_IBM_multimode_draw_arrays
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_KHR_context_flush_control
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_KHR_debug
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_MESA_pack_invert
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_MESA_texture_signed_rgba
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_NV_conditional_render
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_NV_depth_clamp
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_NV_packed_depth_stencil
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_NV_texture_barrier
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_OES_EGL_image
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_OES_read_format
+[2016.04.21-13.04.43:134][  0]LogRHI:   GL_S3_s3tc
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_TEXTURE_SIZE: 8192
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_CUBE_MAP_TEXTURE_SIZE: 8192
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_ARRAY_TEXTURE_LAYERS: 2048
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_3D_TEXTURE_SIZE: 2048
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_RENDERBUFFER_SIZE: 8192
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_TEXTURE_IMAGE_UNITS: 32
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_DRAW_BUFFERS: 8
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_COLOR_ATTACHMENTS: 8
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_SAMPLES: 8
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_COLOR_TEXTURE_SAMPLES: 8
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_DEPTH_TEXTURE_SAMPLES: 8
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_INTEGER_SAMPLES: 8
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 160
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_VERTEX_ATTRIBS: 16
+[2016.04.21-13.04.43:137][  0]LogRHI:   GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT: 16
+[2016.04.21-13.04.43:137][  0]LogRHI: OpenGL MajorVersion = 3, MinorVersion = 3, ShaderPlatform = GLSL_150, FeatureLevel = SM4
+[2016.04.21-13.04.43:152][  0]LogShaderCompilers: Guid format shader working directory is 14 characters bigger than the processId version (../../../../handala/handala/Intermediate/Shaders/WorkingDirectory/17211/).
+[2016.04.21-13.04.43:152][  0]LogShaderCompilers: Cleaned the shader compiler working directory '../../../../handala/handala/Intermediate/Shaders/tmp/0004FD452B04101500040098885CD2BD/'.
+[2016.04.21-13.04.43:152][  0]LogShaderCompilers:Display: Using Local Shader Compiler.
+[2016.04.21-13.04.44:899][  0]LogHAL: FLinuxPlatformProcess::CreateProc: '/usr/bin/mono "/home/moritz/git/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe" -validateplatform -allplatforms'
+[2016.04.21-13.04.44:902][  0]LogHAL: FLinuxPlatformProcess::CreateProc: spawned child 17260
+[2016.04.21-13.04.45:923][  0]LogHAL: Child 17260 is no more running (zombie), Wait()ing immediately.
+[2016.04.21-13.04.45:923][  0]LogTemp:Display: Loaded TP AllDesktopTargetPlatform
+[2016.04.21-13.04.46:563][  0]LogTemp:Display: Loaded TP LinuxNoEditorTargetPlatform
+[2016.04.21-13.04.47:193][  0]LogTemp:Display: Loaded TP LinuxTargetPlatform
+[2016.04.21-13.04.47:829][  0]LogTemp:Display: Loaded TP LinuxServerTargetPlatform
+[2016.04.21-13.04.48:452][  0]LogTemp:Display: Failed to get target platform HTML5TargetPlatform
+[2016.04.21-13.04.48:453][  0]LogTargetPlatformManager:Display: Building Assets For Linux
+[2016.04.21-13.04.49:705][  0]LogDerivedDataCache:Display: Max Cache Size: 512 MB
+[2016.04.21-13.04.49:706][  0]LogDerivedDataCache:Display: Starting with empty Boot cache
+[2016.04.21-13.04.49:706][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../handala/handala/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2016.04.21-13.04.49:706][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2016.04.21-13.04.49:706][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnginePak pak cache file ../../../Engine/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2016.04.21-13.04.49:706][  0]LogDerivedDataCache: Unable to find inner node EnginePak for hierarchical cache Hierarchy.
+[2016.04.21-13.04.49:708][  0]LogDerivedDataCache: Using Local data cache path ../../../Engine/DerivedDataCache: Writable
+[2016.04.21-13.04.49:708][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
+[2016.04.21-13.04.49:708][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
+[2016.04.21-13.04.49:884][  0]LogLinux: Selected Device Profile: [Linux]
+[2016.04.21-13.04.49:884][  0]LogContentStreaming: Texture pool size is 0.00 MB
+[2016.04.21-13.04.49:888][  0]LogHAL: Linux SourceCodeAccessSettings: NullSourceCodeAccessor
+[2016.04.21-13.04.50:784][  0]LogMeshUtilities: No automatic mesh reduction module available
+[2016.04.21-13.04.50:784][  0]LogMeshUtilities: No automatic mesh merging module available
+[2016.04.21-13.04.50:784][  0]LogMeshUtilities: No distributed automatic mesh merging module available
+[2016.04.21-13.04.50:821][  0]LogMaterial: Uniform references updated for custom material expression Custom.
+[2016.04.21-13.04.52:459][  0]LogUObjectArray: 28666 objects as part of root set at end of initial load.
+[2016.04.21-13.04.52:459][  0]LogUObjectAllocator: 5738856 out of 0 bytes used by permanent object pool.
+[2016.04.21-13.04.52:459][  0]LogUObjectArray: CloseDisregardForGC: 0/0 objects in disregard for GC pool
+[2016.04.21-13.05.02:420][  0]LogSlate: SlateFontCache - WITH_FREETYPE: 1, WITH_HARFBUZZ: 0
+[2016.04.21-13.05.02:420][  0]LogSlate: SlateFontCache - WITH_FREETYPE: 1, WITH_HARFBUZZ: 0
+[2016.04.21-13.05.02:601][  0]LogStreaming:Warning: Failed to read file '../../../Engine/Content/Editor/Slate/Common/Selection_16x.png' error.
+[2016.04.21-13.05.02:601][  0]LogSlate: Could not find file for Slate resource: ../../../Engine/Content/Editor/Slate/Common/Selection_16x.png
+[2016.04.21-13.05.02:602][  0]LogStreaming:Warning: Failed to read file '../../../Engine/Content/Editor/Slate/Common/Selection_16x.png' error.
+[2016.04.21-13.05.02:602][  0]LogSlate: Could not find file for Slate resource: ../../../Engine/Content/Editor/Slate/Common/Selection_16x.png
+[2016.04.21-13.05.02:602][  0]LogStreaming:Warning: Failed to read file '../../../Engine/Content/Editor/Slate/Common/Selection_16x.png' error.
+[2016.04.21-13.05.02:602][  0]LogSlate: Could not find file for Slate resource: ../../../Engine/Content/Editor/Slate/Common/Selection_16x.png
+[2016.04.21-13.05.04:833][  0]LogUdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2016.04.21-13.05.06:189][  0]LogAssetRegistry: FAssetRegistry took 0.0006 seconds to start up
+[2016.04.21-13.05.13:765][  0]LogDesktopPlatform: DesktopPlatformLinux is not using LinuxNativeDialogs.
+[2016.04.21-13.05.14:840][  0]SourceControl: Info Source control is disabled
+[2016.04.21-13.05.14:840][  0]SourceControl: Info Source control is disabled
+[2016.04.21-13.05.15:520][  0]LogHAL: FLinuxPlatformProcess::CreateProc: '/usr/bin/git version'
+[2016.04.21-13.05.15:526][  0]LogHAL: FLinuxPlatformProcess::CreateProc: spawned child 17276
+[2016.04.21-13.05.15:533][  0]LogHAL: Child 17276 is no more running (zombie), Wait()ing immediately.
+[2016.04.21-13.05.16:033][  0]SourceControl: Info Source control is disabled
+[2016.04.21-13.05.17:158][  0]SourceControl: Info Source control is disabled
+[2016.04.21-13.05.22:029][  0]LogEngine: Initializing Engine...
+[2016.04.21-13.05.22:034][  0]LogMaterial: Missing cached shader map for material WireframeMaterial, compiling. Is special engine material.
+[2016.04.21-13.05.22:154][  0]LogMaterial: Missing cached shader map for material LevelColorationLitMaterial, compiling. Is special engine material.
+[2016.04.21-13.05.22:585][  0]LogHAL: FLinuxPlatformProcess::CreateProc: '/home/moritz/git/UnrealEngine/Engine/Binaries/Linux/ShaderCompileWorker "/home/moritz/git/handala/handala/Intermediate/Shaders/tmp/0004FD452B04101500040098885CD2BD/0/" 17211 0 WorkerInputOnly.in WorkerOutputOnly.out -communicatethroughfile  -Multiprocess'
+[2016.04.21-13.05.22:585][  0]LogHAL: Changed child's priority (nice value) to 10 (change from 0)
+[2016.04.21-13.05.22:585][  0]LogHAL: FLinuxPlatformProcess::CreateProc: '/home/moritz/git/UnrealEngine/Engine/Binaries/Linux/ShaderCompileWorker "/home/moritz/git/handala/handala/Intermediate/Shaders/tmp/0004FD452B04101500040098885CD2BD/1/" 17211 1 WorkerInputOnly.in WorkerOutputOnly.out -communicatethroughfile  -Multiprocess'
+[2016.04.21-13.05.22:586][  0]LogHAL: Changed child's priority (nice value) to 10 (change from 0)
+[2016.04.21-13.05.22:586][  0]LogHAL: FLinuxPlatformProcess::CreateProc: '/home/moritz/git/UnrealEngine/Engine/Binaries/Linux/ShaderCompileWorker "/home/moritz/git/handala/handala/Intermediate/Shaders/tmp/0004FD452B04101500040098885CD2BD/2/" 17211 2 WorkerInputOnly.in WorkerOutputOnly.out -communicatethroughfile  -Multiprocess'
+[2016.04.21-13.05.22:586][  0]LogHAL: Changed child's priority (nice value) to 10 (change from 0)
+[2016.04.21-13.05.22:586][  0]LogMaterial: Missing cached shader map for material LevelColorationUnlitMaterial, compiling. Is special engine material.
+[2016.04.21-13.05.22:716][  0]LogMaterial: Missing cached shader map for material MAT_LevelColorationLitLightmapUV, compiling. Is special engine material.
+[2016.04.21-13.05.23:079][  0]LogMaterial: Missing cached shader map for material ShadedLevelColorationLitMaterial, compiling. Is special engine material.
+[2016.04.21-13.05.23:572][  0]LogMaterial: Missing cached shader map for material ShadedLevelColorationUnlitMateri, compiling. Is special engine material.
+[2016.04.21-13.05.23:875][  0]LogMaterial: Missing cached shader map for material VertexColorMaterial, compiling. 
+[2016.04.21-13.05.23:931][  0]LogMaterial: Missing cached shader map for material VertexColorViewMode_ColorOnly, compiling. 
+[2016.04.21-13.05.23:957][  0]LogMaterial: Missing cached shader map for material VertexColorViewMode_AlphaAsColor, compiling. 
+[2016.04.21-13.05.23:971][  0]LogMaterial: Missing cached shader map for material VertexColorViewMode_RedOnly, compiling. 
+[2016.04.21-13.05.23:998][  0]LogMaterial: Missing cached shader map for material VertexColorViewMode_GreenOnly, compiling. 
+[2016.04.21-13.05.24:015][  0]LogMaterial: Missing cached shader map for material VertexColorViewMode_BlueOnly, compiling. 
+[2016.04.21-13.05.24:039][  0]LogMaterial: Missing cached shader map for material RemoveSurfaceMaterial, compiling. 
+[2016.04.21-13.05.24:061][  0]LogMaterial: Missing cached shader map for material DebugMeshMaterial, compiling. 
+[2016.04.21-13.05.24:099][  0]LogMaterial: Missing cached shader map for material M_InvalidLightmapSettings, compiling. 
+[2016.04.21-13.05.24:136][  0]LogMaterial: Missing cached shader map for material GizmoMaterial, compiling. 
+[2016.04.21-13.05.24:159][  0]LogMaterial: Missing cached shader map for material GeomMaterial, compiling. 
+[2016.04.21-13.05.24:175][  0]LogMaterial: Missing cached shader map for material EditorBrushMaterial, compiling. 
+[2016.04.21-13.05.24:210][  0]LogMaterial: Missing cached shader map for material BoneWeightMaterial, compiling. 
+[2016.04.21-13.05.24:312][  0]LogMaterial: Missing cached shader map for material PreviewShadowIndicatorMaterial, compiling. 
+[2016.04.21-13.05.24:337][  0]LogMaterial: Missing cached shader map for material PhAT_JointLimitMaterial, compiling. 
+[2016.04.21-13.05.27:249][  0]LogAIModule: Creating AISystem for world NewWorld
+[2016.04.21-13.05.27:285][  0]LogALAudio: ALAudio device opened : OpenAL Soft
+[2016.04.21-13.05.27:287][  0]LogALAudio: AL_VENDOR      : OpenAL Community
+[2016.04.21-13.05.27:287][  0]LogALAudio: AL_RENDERER    : OpenAL Soft
+[2016.04.21-13.05.27:287][  0]LogALAudio: AL_VERSION     : 1.1 ALSOFT 1.15.1
+[2016.04.21-13.05.27:287][  0]LogALAudio: AL_EXTENSIONS  : AL_EXT_ALAW AL_EXT_DOUBLE AL_EXT_EXPONENT_DISTANCE AL_EXT_FLOAT32 AL_EXT_IMA4 AL_EXT_LINEAR_DISTANCE AL_EXT_MCFORMATS AL_EXT_MULAW AL_EXT_MULAW_MCFORMATS AL_EXT_OFFSET AL_EXT_source_distance_model AL_LOKI_quadriphonic AL_SOFT_buffer_samples AL_SOFT_buffer_sub_data AL_SOFTX_deferred_updates AL_SOFT_direct_channels AL_SOFT_loop_points AL_SOFT_source_latency
+[2016.04.21-13.05.27:288][  0]LogInit: FAudioDevice initialized.
+[2016.04.21-13.05.27:341][  0]LogDerivedDataCache: Saved boot cache 0.05s 41MB ../../../../handala/handala/DerivedDataCache/Boot.ddc.
+[2016.04.21-13.05.27:370][  0]LogInit: Texture streaming: Enabled
+[2016.04.21-13.05.28:910][  0]LogInit: Transaction tracking system initialized
+[2016.04.21-13.05.36:208][  0]BlueprintLog: New page: Editor Load
+[2016.04.21-13.05.54:036][  0]LocalizationService: Info Localization service is disabled
+[2016.04.21-13.06.03:151][  0]LogConsoleResponse:Display: 
+[2016.04.21-13.06.04:066][  0]LogMaterial: Missing cached shader map for material Cross_Mat, compiling. 
+[2016.04.21-13.06.04:089][  0]LogMaterial: Missing cached shader map for material PhAT_BoneSelectedMaterial, compiling. 
+[2016.04.21-13.06.04:106][  0]LogMaterial: Missing cached shader map for material PhAT_ElemSelectedMaterial, compiling. 
+[2016.04.21-13.06.04:120][  0]LogMaterial: Missing cached shader map for material PhAT_NoCollisionMaterial, compiling. 
+[2016.04.21-13.06.04:136][  0]LogMaterial: Missing cached shader map for material PhAT_UnselectedMaterial, compiling. 
+[2016.04.21-13.06.04:153][  0]LogMaterial: Missing cached shader map for material Tick_Mat, compiling. 
+[2016.04.21-13.06.04:178][  0]LogMaterial: Missing cached shader map for material WidgetGridVertexColorMaterial_Ma, compiling. 
+[2016.04.21-13.06.04:213][  0]LogMaterial: Missing cached shader map for material WidgetMaterial, compiling. 
+[2016.04.21-13.06.04:231][  0]LogMaterial: Missing cached shader map for material WidgetMaterial_Current, compiling. 
+[2016.04.21-13.06.04:249][  0]LogMaterial: Missing cached shader map for material WidgetMaterial_X, compiling. 
+[2016.04.21-13.06.04:264][  0]LogMaterial: Missing cached shader map for material WidgetMaterial_Y, compiling. 
+[2016.04.21-13.06.04:280][  0]LogMaterial: Missing cached shader map for material WidgetMaterial_Z, compiling. 
+[2016.04.21-13.06.04:296][  0]LogMaterial: Missing cached shader map for material WidgetVertexColorMaterial, compiling. 
+[2016.04.21-13.06.04:350][  0]LogMaterial: Missing cached shader map for material LevelGridMaterial, compiling. 
+[2016.04.21-13.06.04:404][  0]LogMaterial: Missing cached shader map for material BlinkingCaret, compiling. 
+[2016.04.21-13.06.04:447][  0]LogMaterial: Missing cached shader map for material M_StreamingPause, compiling. 
+[2016.04.21-13.06.04:464][  0]LogCook:Display: Max memory allowance for cook 8192mb
+[2016.04.21-13.06.04:464][  0]LogCook:Display: Mobile HDR setting 1
+[2016.04.21-13.06.04:464][  0]LogCook:Display: Done creating registry. It took  0.00s.
+[2016.04.21-13.06.05:666][  0]LogFileCache: Scanning file cache for directory '/home/moritz/git/handala/handala/Content/' took 0.01s
+[2016.04.21-13.06.14:603][  0]SourceControl: Info Source control is disabled
+[2016.04.21-13.06.14:604][  0]Cmd: MAP LOAD FILE="../../../Engine/Content/Maps/Templates/Template_Default.umap" TEMPLATE=1 SHOWPROGRESS=1 FEATURELEVEL=2
+[2016.04.21-13.06.14:605][  0]LightingResults: New page: Lighting Build
+[2016.04.21-13.06.15:637][  0]MapCheck: New page: Map Check
+[2016.04.21-13.06.15:637][  0]LightingResults: New page: Lighting Build
+[2016.04.21-13.06.16:039][  0]LogMaterial: Missing cached shader map for material M_Sky_Panning_Clouds2, compiling. 
+[2016.04.21-13.06.16:199][  0]LogAIModule: Creating AISystem for world Untitled_1
+[2016.04.21-13.06.16:220][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2016.04.21-13.06.16:442][  0]Cmd: MAP CHECKDEP NOCLEARLOG
+[2016.04.21-13.06.16:471][  0]MapCheck: Info Map check complete: 0 Error(s), 0 Warning(s), took 28.862ms to complete.
+[2016.04.21-13.06.16:471][  0]LogFileHelpers: Loading map 'Template_Default' took 1.867
+[2016.04.21-13.06.17:972][  0]LogCollectionManager: Loaded 0 collections in 0.001731 seconds
+[2016.04.21-13.06.18:001][  0]LogFileCache: Scanning file cache for directory '/home/moritz/git/handala/handala/Saved/Col
