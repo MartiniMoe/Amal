@@ -4,7 +4,7 @@ extends Navigation2D
 const SPEED = 300.0
 const TALK_DISTANCE = 50
 
-var testNpcClicked = false
+var npc_clicked = null
 
 var begin = Vector2()
 var end = Vector2()
@@ -31,42 +31,40 @@ func _process(delta):
 		if (path.size() < 2):
 			path = []
 			set_process(false)
-			print("path complete")
-			if checkTestNpcNear() && testNpcClicked:
-				get_node("npc_test/npc_bubble/text_interface_engine").reset()
-				get_node("npc_test/npc_bubble").show()
-				get_node("npc_test/npc_bubble/text_interface_engine").buff_text("Salam aleikum!\n", 0.1)
-				get_node("npc_test/npc_bubble/text_interface_engine").buff_silence(0.1)
-				get_node("npc_test/npc_bubble/text_interface_engine").buff_text("5uie", 0.1)
-				get_node("npc_test/npc_bubble/text_interface_engine").set_state(1)
+			var npc_near = check_npc_near()
+			if (npc_near != null && npc_clicked != null) && (npc_clicked == npc_near):
+					npc_clicked.show_dialogue()
 	else:
 		set_process(false)
 
 
-func checkTestNpcClicked(clickPos):
+func check_npc_clicked(clickPos):
 	var character = get_node("character")
-	var npc = get_node("npc_test")
-	var npc_x = npc.get_pos().x
-	var npc_y = npc.get_pos().y
-	var npc_width = npc.get_region_rect().size.x
-	var npc_height = npc.get_region_rect().size.y
-	if (clickPos.x > (npc_x - npc_width/2) && clickPos.x < (npc_x + npc_width/2)):
-		if (clickPos.y > (npc_y - npc_height/2) && clickPos.y < (npc_y + npc_height/2)):
-			return true
-	return false
+	for npc in get_children():
+		if npc.is_in_group("npc_dialogue"):
+			var npc_x = npc.get_pos().x
+			var npc_y = npc.get_pos().y
+			var npc_width = npc.get_region_rect().size.x
+			var npc_height = npc.get_region_rect().size.y
+			if (clickPos.x > (npc_x - npc_width/2) && clickPos.x < (npc_x + npc_width/2)):
+				if (clickPos.y > (npc_y - npc_height/2) && clickPos.y < (npc_y + npc_height/2)):
+					return npc
+			npc.hide_dialogue()
+	return null
 
 
-func checkTestNpcNear():
+func check_npc_near():
 	var character = get_node("character")
-	var npc = get_node("npc_test")
-	var npc_x = npc.get_pos().x
-	var npc_y = npc.get_pos().y
-	var npc_width = npc.get_region_rect().size.x
-	var npc_height = npc.get_region_rect().size.y
-	if character.get_pos().x > (npc_x - npc_width/2 - TALK_DISTANCE) && character.get_pos().x < (npc_x + npc_width/2 + TALK_DISTANCE):
-		if character.get_pos().y > (npc_y - npc_height/2 - TALK_DISTANCE) && character.get_pos().y < (npc_y + npc_height/2 + TALK_DISTANCE):
-			return true
-	return false
+	for npc in get_children():
+		if npc.is_in_group("npc_dialogue"):
+			var npc_x = npc.get_pos().x
+			var npc_y = npc.get_pos().y
+			var npc_width = npc.get_region_rect().size.x
+			var npc_height = npc.get_region_rect().size.y
+			if character.get_pos().x > (npc_x - npc_width/2 - TALK_DISTANCE) && character.get_pos().x < (npc_x + npc_width/2 + TALK_DISTANCE):
+				if character.get_pos().y > (npc_y - npc_height/2 - TALK_DISTANCE) && character.get_pos().y < (npc_y + npc_height/2 + TALK_DISTANCE):
+					return npc
+	return null
 
 
 func _update_path():
@@ -81,12 +79,7 @@ func _input(event):
 	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == 1):
 		begin = get_node("character").get_pos()
 		
-		if checkTestNpcClicked(event.pos - get_pos()):
-			testNpcClicked = true
-			print("npc clicked")
-		else:
-			testNpcClicked = false
-			print("npc not clicked")
+		npc_clicked = check_npc_clicked(event.pos - get_pos())
 		
 		# Mouse to local navigation coordinates
 		end = event.pos - get_pos()
@@ -94,6 +87,8 @@ func _input(event):
 
 
 func _ready():
-	get_node("npc_test/npc_bubble").hide()
+	for npc in get_children():
+		if npc.is_in_group("npc_dialogue"):
+			npc.hide_dialogue()
 	set_process_input(true)
 
