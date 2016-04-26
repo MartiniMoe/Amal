@@ -4,6 +4,8 @@ extends Navigation2D
 const SPEED = 300.0
 const TALK_DISTANCE = 50
 
+export var scale_offset = 300
+
 var npc_clicked = null
 
 var begin = Vector2()
@@ -14,6 +16,9 @@ var path = []
 func _process(delta):
 	if (path.size() > 1):
 		var to_walk = delta*SPEED
+		
+		scale_player()
+		
 		while(to_walk > 0 and path.size() >= 2):
 			var pfrom = path[path.size() - 1]
 			var pto = path[path.size() - 2]
@@ -88,7 +93,14 @@ func _input(event):
 		_update_path()
 
 
+func scale_player():
+	var y_percentage = get_node("player").get_pos().y/1080
+	var scale = log(get_node("player").get_pos().y/500)
+	get_node("player").set_scale(Vector2(scale, scale))
+
+
 func _ready():
+	scale_player()
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
