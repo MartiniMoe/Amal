@@ -26,7 +26,7 @@ func _process(delta):
 				to_walk = 0
 		
 		var atpos = path[path.size() - 1]
-		get_node("character").set_pos(atpos)
+		get_node("player").set_pos(atpos)
 		
 		if (path.size() < 2):
 			path = []
@@ -34,12 +34,14 @@ func _process(delta):
 			var npc_near = check_npc_near()
 			if (npc_near != null && npc_clicked != null) && (npc_clicked == npc_near):
 					npc_clicked.show_dialogue()
+			if get_node("player").get_pos().x > 1900:
+				transition.fade_to("res://scenes/dummy_scene.scn")
 	else:
 		set_process(false)
 
 
 func check_npc_clicked(clickPos):
-	var character = get_node("character")
+	var character = get_node("player")
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			var npc_x = npc.get_pos().x
@@ -54,7 +56,7 @@ func check_npc_clicked(clickPos):
 
 
 func check_npc_near():
-	var character = get_node("character")
+	var character = get_node("player")
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			var npc_x = npc.get_pos().x
@@ -77,7 +79,7 @@ func _update_path():
 
 func _input(event):
 	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == 1):
-		begin = get_node("character").get_pos()
+		begin = get_node("player").get_pos()
 		
 		npc_clicked = check_npc_clicked(event.pos - get_pos())
 		
