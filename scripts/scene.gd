@@ -7,9 +7,6 @@ const TALK_DISTANCE = 50
 export var scale_enabled = false
 export var scale_factor = 500
 
-export var scene_top = ""
-export var scene_right = ""
-
 var npc_clicked = null
 
 var begin = Vector2()
@@ -48,6 +45,10 @@ func _process(delta):
 			var npc_near = check_npc_near()
 			if (npc_near != null && npc_clicked != null) && (npc_clicked == npc_near):
 					npc_clicked.show_dialogue()
+			
+			if get_node("player/Area2D").get_overlapping_areas().size() > 0:
+				get_node("player/Area2D").get_overlapping_areas()[0].teleport()
+			
 #			if scene_right != null && scene_right != "" && get_node("player").get_pos().x > 1900:
 #				transition.fade_to(scene_right)
 #			if scene_top != null && scene_top != "" && get_node("player").get_pos().y < 720:
@@ -55,19 +56,7 @@ func _process(delta):
 	else:
 		set_process(false)
 
-func check_mouseover(mousePos):
-	print(mousePos.x)
-	print(mousePos.y)
-	var trigger = get_node("enterScene")
-	var trigger_x = trigger.get_pos().x
-	var trigger_y = trigger.get_pos().y
-	var trigger_width = trigger.get_texture().get_width()
-	var trigger_height = trigger.get_texture().get_height()
-	if(mousePos.x > (trigger_x - trigger_width/2) && mousePos.x < (trigger_x + trigger_width/2)):
-		if (mousePos.y > (trigger_y - trigger_height/2) && mousePos.y < (trigger_y + trigger_height/2)):
-			return true
-	else:
-		return null
+
 
 func check_npc_clicked(clickPos):
 	var character = get_node("player")
@@ -114,12 +103,12 @@ func _input(event):
 		# Mouse to local navigation coordinates
 		end = event.pos - get_pos()
 		_update_path()
-	if(event.type == InputEvent.MOUSE_MOTION):
+	"""if(event.type == InputEvent.MOUSE_MOTION):
 		mouseOver = check_mouseover(event.pos)
 		if mouseOver:
 			get_node("enterScene").show()
 		else:
-			get_node("enterScene").hide()
+			get_node("enterScene").hide()"""
 
 func scale_player():
 	if scale_enabled:
