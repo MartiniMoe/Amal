@@ -9,8 +9,14 @@ func teleport():
 
 
 func _on_Portal_mouse_enter():
-	get_node("enter_scene").show()
+	get_node("Particles2D").set_emitting(true)
 
 
 func _on_Portal_mouse_exit():
-	get_node("enter_scene").hide()
+	get_node("Particles2D").set_emitting(false)
+
+
+func _ready():
+	var w = get_node("CollisionShape2D").get_shape().get_extents().width/2
+	var h = get_node("CollisionShape2D").get_shape().get_extents().height/2
+	get_node("Particles2D").set_emission_half_extents(Vector2(w, h))

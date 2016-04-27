@@ -1,7 +1,7 @@
 extends Navigation2D
 
 # Member variables
-const SPEED = 300.0
+const SPEED = 100.0
 const TALK_DISTANCE = 50
 
 export var scale_enabled = false
@@ -23,6 +23,9 @@ func _process(delta):
 	if (path.size() > 1):
 		var to_walk = delta*SPEED
 		
+		if !get_node("player/AnimationPlayer").is_playing():
+			#get_node("player/AnimationPlayer").get_animation("walk").set_loop(true)
+			get_node("player/AnimationPlayer").play("walk")
 		scale_player()
 		
 		while(to_walk > 0 and path.size() >= 2):
@@ -41,6 +44,9 @@ func _process(delta):
 		
 		if (path.size() < 2):
 			path = []
+			#get_node("player/AnimationPlayer").get_animation("walk").set_loop(false)
+			get_node("player/AnimationPlayer").seek(0.0, true)
+			get_node("player/AnimationPlayer").stop_all()
 			set_process(false)
 			var npc_near = check_npc_near()
 			if (npc_near != null && npc_clicked != null) && (npc_clicked == npc_near):
