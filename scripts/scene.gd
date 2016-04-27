@@ -4,7 +4,11 @@ extends Navigation2D
 const SPEED = 300.0
 const TALK_DISTANCE = 50
 
-export var scale_offset = 300
+export var scale_enabled = false
+export var scale_factor = 500
+
+export var scene_top = ""
+export var scene_right = ""
 
 var npc_clicked = null
 
@@ -39,8 +43,10 @@ func _process(delta):
 			var npc_near = check_npc_near()
 			if (npc_near != null && npc_clicked != null) && (npc_clicked == npc_near):
 					npc_clicked.show_dialogue()
-			if get_node("player").get_pos().x > 1900:
-				transition.fade_to("res://scenes/dummy_scene.scn")
+			if scene_right != null && scene_right != "" && get_node("player").get_pos().x > 1900:
+				transition.fade_to(scene_right)
+			if scene_top != null && scene_top != "" && get_node("player").get_pos().y < 720:
+				transition.fade_to(scene_top)
 	else:
 		set_process(false)
 
@@ -94,9 +100,9 @@ func _input(event):
 
 
 func scale_player():
-	var y_percentage = get_node("player").get_pos().y/1080
-	var scale = log(get_node("player").get_pos().y/500)
-	get_node("player").set_scale(Vector2(scale, scale))
+	if scale_enabled:
+		var scale = log(get_node("player").get_pos().y/scale_factor)
+		get_node("player").set_scale(Vector2(scale, scale))
 
 
 func _ready():
