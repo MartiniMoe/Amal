@@ -24,7 +24,6 @@ func _process(delta):
 		var to_walk = delta*SPEED
 		
 		if !get_node("player/AnimationPlayer").is_playing():
-			#get_node("player/AnimationPlayer").get_animation("walk").set_loop(true)
 			get_node("player/AnimationPlayer").play("walk")
 		scale_player()
 		
@@ -44,7 +43,6 @@ func _process(delta):
 		
 		if (path.size() < 2):
 			path = []
-			#get_node("player/AnimationPlayer").get_animation("walk").set_loop(false)
 			get_node("player/AnimationPlayer").seek(0.0, true)
 			get_node("player/AnimationPlayer").stop_all()
 			set_process(false)
@@ -54,11 +52,6 @@ func _process(delta):
 			
 			if get_node("player/Area2D").get_overlapping_areas().size() > 0:
 				get_node("player/Area2D").get_overlapping_areas()[0].teleport()
-			
-#			if scene_right != null && scene_right != "" && get_node("player").get_pos().x > 1900:
-#				transition.fade_to(scene_right)
-#			if scene_top != null && scene_top != "" && get_node("player").get_pos().y < 720:
-#				transition.fade_to(scene_top)
 	else:
 		set_process(false)
 
@@ -109,12 +102,6 @@ func _input(event):
 		# Mouse to local navigation coordinates
 		end = event.pos - get_pos()
 		_update_path()
-	"""if(event.type == InputEvent.MOUSE_MOTION):
-		mouseOver = check_mouseover(event.pos)
-		if mouseOver:
-			get_node("enterScene").show()
-		else:
-			get_node("enterScene").hide()"""
 
 func scale_player():
 	if scale_enabled:
