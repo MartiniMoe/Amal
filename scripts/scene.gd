@@ -1,7 +1,7 @@
 extends Navigation2D
 
 # Member variables
-const SPEED = 100.0
+const SPEED = 160.0
 const TALK_DISTANCE = 50
 
 export var scale_enabled = false
@@ -13,8 +13,8 @@ var begin = Vector2()
 var end = Vector2()
 var path = []
 
-var left_corner = Vector2(110,1084)
-var right_corner = Vector2(1748,1084)
+var left_corner = Vector2(110,1000)
+var right_corner = Vector2(1748,1000)
 var middle = Vector2(1000,1000)
 
 var mouseOver = null
@@ -121,8 +121,8 @@ func set_playerPos():
 
 
 func _ready():
-	scale_player()
 	set_playerPos()
+	scale_player()
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
