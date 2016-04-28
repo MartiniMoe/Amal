@@ -1,4 +1,7 @@
+extends Node
+
 var path = ""
+var direction
 
 
 # PUBLIC FUNCTION. CALLED WHENEVER YOU WANT TO CHANGE SCENE
@@ -13,3 +16,10 @@ func change_scene():
 	if path != "":
 		print("Changing to " + self.path)
 		get_tree().change_scene(path)
+
+func get_direction():
+	return direction
+
+func set_direction(dir):
+	direction = dir
+	return direction

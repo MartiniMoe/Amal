@@ -15,6 +15,7 @@ var path = []
 
 var left_corner = Vector2(110,1084)
 var right_corner = Vector2(1748,1084)
+var middle = Vector2(1000,1000)
 
 var mouseOver = null
 
@@ -108,15 +109,20 @@ func scale_player():
 		var scale = log(get_node("player").get_pos().y/scale_factor)
 		get_node("player").set_scale(Vector2(scale, scale))
 
-func set_playerPos_left():
-	get_node("player").set_pos(left_corner)
-
-func set_playerPos_right():
-	get_node("player").set_pos(right_corner)
+func set_playerPos():
+	if(transition.get_direction() == 0):
+		get_node("player").set_pos(right_corner)
+	if(transition.get_direction() == 1):
+		get_node("player").set_pos(left_corner)
+	if(transition.get_direction() == 2):
+		get_node("player").set_pos(middle)
+	else:
+		return
 
 
 func _ready():
 	scale_player()
+	set_playerPos()
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
