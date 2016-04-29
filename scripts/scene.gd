@@ -9,6 +9,8 @@ export var scale_factor = 500
 
 var npc_clicked = null
 
+var item_held = null
+
 var begin = Vector2()
 var end = Vector2()
 var path = []
@@ -21,6 +23,13 @@ var mouseOver = null
 
 
 func _process(delta):
+	# Draw the held item onto the player sprite #
+	if item_held != null:
+		get_node("player/Item").set_texture(load(item_held))
+		get_node("player/Item").set_scale(Vector2(0.5,0.5))
+	else:
+		get_node("player/Item").set_texture(load(""))
+		
 	if (path.size() > 1):
 		var to_walk = delta*SPEED
 		
@@ -120,6 +129,7 @@ func set_playerPos():
 		return
 
 
+
 func _ready():
 	set_playerPos()
 	scale_player()
@@ -128,3 +138,9 @@ func _ready():
 			npc.hide_dialogue()
 	set_process_input(true)
 
+
+
+# when pressing the key, collect it #
+func _on_Key_pressed():
+	item_held = "sprites/key.png"
+	get_node("Key").hide()
