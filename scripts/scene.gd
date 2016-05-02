@@ -8,6 +8,7 @@ export var scale_enabled = false
 export var scale_factor = 500
 
 var npc_clicked = null
+var dialogue_running = null
 
 var item_held = null
 
@@ -57,7 +58,7 @@ func _process(delta):
 			get_node("player/AnimationPlayer").stop_all()
 			set_process(false)
 			var npc_near = check_npc_near()
-			if (npc_near != null && npc_clicked != null) && (npc_clicked == npc_near):
+			if (npc_near != null && npc_clicked != null) && (npc_clicked == npc_near) && (dialogue_running == false):
 					npc_clicked.show_dialogue()
 			
 			if get_node("player/Area2D").get_overlapping_areas().size() > 0:
@@ -78,7 +79,7 @@ func check_npc_clicked(clickPos):
 			if (clickPos.x > (npc_x - npc_width/2) && clickPos.x < (npc_x + npc_width/2)):
 				if (clickPos.y > (npc_y - npc_height/2) && clickPos.y < (npc_y + npc_height/2)):
 					return npc
-			npc.hide_dialogue()
+#			npc.hide_dialogue()
 	return null
 
 func check_npc_near():
@@ -111,7 +112,8 @@ func _input(event):
 		
 		# Mouse to local navigation coordinates
 		end = event.pos - get_pos()
-		_update_path()
+		if (dialogue_running == false):
+			_update_path()
 
 func scale_player():
 	if scale_enabled:
@@ -133,6 +135,7 @@ func set_playerPos():
 func _ready():
 	set_playerPos()
 	scale_player()
+	dialogue_running = false
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
@@ -144,3 +147,8 @@ func _ready():
 func _on_Key_pressed():
 	item_held = "sprites/key.png"
 	get_node("Key").hide()
+
+
+func _on_npc_bubble_input_event(event):
+	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == 1):
+		npc_clicked.show_dialogue()
