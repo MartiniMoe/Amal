@@ -391,3 +391,8 @@ func _label_print(t): # Add text to the label
 		if(LOG_SKIPPED_LINES == false): # Delete skipped lines
 			_clear_skipped_lines()
 	return t
+
+func _on_npc_bubble_input_event( ev ):
+	if (ev.type == InputEvent.MOUSE_BUTTON and ev.pressed and ev.button_index == 1):
+		#get_node("/root").npc_bubble_clicked()
+		get_parent().get_parent().npc_bubble_clicked()

@@ -25,11 +25,11 @@ var mouseOver = null
 
 func _process(delta):
 	# Draw the held item onto the player sprite #
-	if item_held != null:
+	"""if item_held != null:
 		get_node("player/Item").set_texture(load(item_held))
 		get_node("player/Item").set_scale(Vector2(0.5,0.5))
 	else:
-		get_node("player/Item").set_texture(load(""))
+		get_node("player/Item").set_texture(load(""))"""
 		
 	if (path.size() > 1):
 		var to_walk = delta*SPEED
@@ -105,15 +105,14 @@ func _update_path():
 
 
 func _input(event):
-	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == 1):
+	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == 1 and !dialogue_running):
 		begin = get_node("player").get_pos()
 		
 		npc_clicked = check_npc_clicked(event.pos - get_pos())
 		
 		# Mouse to local navigation coordinates
 		end = event.pos - get_pos()
-		if (dialogue_running == false):
-			_update_path()
+		_update_path()
 
 func scale_player():
 	if scale_enabled:
@@ -149,6 +148,12 @@ func _on_Key_pressed():
 	get_node("Key").hide()
 
 
-func _on_npc_bubble_input_event(event):
-	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == 1):
-		npc_clicked.show_dialogue()
+func npc_bubble_clicked():
+	if get_node("npc_bubble/text_interface_engine")._buffer.size() > 0:
+		#get_node("npc_bubble/text_interface_engine").set_buff_speed(1.0)
+		get_node("npc_bubble/text_interface_engine").set_turbomode(true)
+	else:
+		if npc_clicked.counter >= npc_clicked.npc_text.size():
+			npc_clicked.hide_dialogue()
+		else:
+			npc_clicked.show_dialogue()
