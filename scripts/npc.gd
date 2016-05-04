@@ -15,8 +15,12 @@ func show_dialogue():
 			counter = counter + 1
 			break
 		else:
-			get_node("../npc_bubble/text_interface_engine").buff_text(npc_text[counter] + "\n", 0.1)
+			#get_node("../npc_bubble/text_interface_engine").buff_text(npc_text[counter] + "\n", 0.1)
+			get_node("../npc_bubble/text_interface_engine").buff_text(npc_text[counter].right(npc_text[counter].find_last("_")+1) + ": ")
+			get_node("../npc_bubble/text_interface_engine").buff_text(tr(npc_text[counter]) + "\n", 0.1)
 			get_node("../npc_bubble/text_interface_engine").buff_silence(0.1)
+			counter = counter + 1
+			break
 		counter = counter + 1
 	get_node("../npc_bubble/text_interface_engine").set_state(1)
 
