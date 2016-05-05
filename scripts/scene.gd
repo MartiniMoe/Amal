@@ -24,12 +24,6 @@ var mouseOver = null
 
 
 func _process(delta):
-	# Draw the held item onto the player sprite #
-	"""if item_held != null:
-		get_node("player/Item").set_texture(load(item_held))
-		get_node("player/Item").set_scale(Vector2(0.5,0.5))
-	else:
-		get_node("player/Item").set_texture(load(""))"""
 		
 	if (path.size() > 1):
 		var to_walk = delta*SPEED
