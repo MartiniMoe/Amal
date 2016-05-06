@@ -12,3 +12,7 @@ func _on_btn_arabic_pressed():
 
 func _on_btn_exit_pressed():
 	get_tree().quit()
+
+func _on_btn_german_pressed():
+	TranslationServer.set_locale("de")
+	transition.fade_to("res://scenes/scene_01_entrance.scn")
