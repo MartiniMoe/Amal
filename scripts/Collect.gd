@@ -3,6 +3,7 @@ extends Navigation2D
 var items_collected = 0
 var item_clicked = null
 var item_hovered = null
+export var path = ""
 
 func check_item_clicked(e):
 	for item in get_children():
@@ -45,7 +46,9 @@ func _input(event):
 		if (item_clicked != null):
 			item_clicked.set_hidden(true)
 			items_collected += 1
-
+			if(items_collected >= 10):
+				transition.set_text_counter(8)
+				transition.fade_to(path)
 
 func _ready():
 	set_process_input(true)

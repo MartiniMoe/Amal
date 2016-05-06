@@ -2,6 +2,7 @@ extends Node
 
 var path = ""
 var direction
+var text_counter = 0
 
 
 # PUBLIC FUNCTION. CALLED WHENEVER YOU WANT TO CHANGE SCENE
@@ -23,3 +24,10 @@ func get_direction():
 func set_direction(dir):
 	direction = dir
 	return direction
+
+func get_text_counter():
+	return text_counter
+
+func set_text_counter(counter):
+	text_counter = counter
+	return text_counter
