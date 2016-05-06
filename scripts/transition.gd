@@ -3,6 +3,8 @@ extends Node
 var path = ""
 var direction
 var text_counter = 0
+var collectables = 0
+var new_path = ""
 
 
 # PUBLIC FUNCTION. CALLED WHENEVER YOU WANT TO CHANGE SCENE
@@ -25,9 +27,23 @@ func set_direction(dir):
 	direction = dir
 	return direction
 
+func get_collectables():
+	return collectables
+
+func set_collectables(collect):
+	collectables = collect
+	return collectables
+
 func get_text_counter():
 	return text_counter
 
 func set_text_counter(counter):
 	text_counter = counter
 	return text_counter
+
+func get_path():
+	return new_path
+
+func set_path(pathName):
+	new_path = pathName
+	return new_path

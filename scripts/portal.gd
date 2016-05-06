@@ -7,6 +7,7 @@ export var dir = 2
 
 func teleport():
 	transition.set_direction(dir)
+	transition.set_text_counter(0)
 	transition.fade_to(target_scene)
 
 
