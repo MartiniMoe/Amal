@@ -17,7 +17,6 @@ func fade_to(scn_path):
 # PRIVATE FUNCTION. CALLED AT THE MIDDLE OF THE TRANSITION ANIMATION
 func change_scene():
 	if path != "":
-		print("Changing to " + self.path)
 		get_tree().change_scene(path)
 
 func get_direction():
