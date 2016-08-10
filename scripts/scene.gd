@@ -127,8 +127,6 @@ func set_playerPos():
 
 func _ready():
 	set_playerPos()
-	TranslationServer.set_locale("en")
-	print(tr("Amal_greeting"))
 	scale_player()
 	dialogue_running = false
 	for npc in get_children():
