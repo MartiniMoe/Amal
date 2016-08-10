@@ -23,13 +23,18 @@ func _input(event):
 			set_process(false)
 			
 			# check if the saddle is in the correct position #
-			if (dragable_dragged == get_node("Sprite 3")):
-				var mouse_x = self.get_local_mouse_pos().x
-				var mouse_y = self.get_local_mouse_pos().y
-				if (mouse_x > (700 - 250) && mouse_x < (700 + 250)):
-					if(mouse_y > (250 - 250) && mouse_y < (250 + 250)):
-						get_node("Sprite 3").remove_from_group("dragable")
-						get_node("Sprite 3").set_pos(Vector2(700,250))
+			check_correct_node("Saddle", 1015, 417)
+			if (!get_node("Wheel2").get_pos() == Vector2(1280, 690)):
+				check_correct_node("Wheel1", 1280, 690)
+			if (!get_node("Wheel1").get_pos() == Vector2(875, 710)):
+				check_correct_node("Wheel2", 875, 710)
+			if (!get_node("Wheel1").get_pos() == Vector2(1280, 690)):
+				check_correct_node("Wheel2", 1280, 690)
+			if (!get_node("Wheel2").get_pos() == Vector2(875, 710)):
+				check_correct_node("Wheel1", 875, 710)
+			check_correct_node("Handle", 1245, 405)
+			check_correct_node("Body", 1060, 585)
+			check_correct_node("Peddle", 1070, 715)
 			# end saddle position checking #
 			
 			process_running = false
@@ -39,6 +44,19 @@ func _input(event):
 			if (dragable_dragged != null):
 				process_running = true
 				set_process(true)
+
+
+func check_correct_node(node, x, y):
+	var drop_area_size = 250
+	if (dragable_dragged == get_node(node)):
+			var mouse_x = self.get_local_mouse_pos().x
+			var mouse_y = self.get_local_mouse_pos().y
+			# 250 is just how large the drop area is #
+			if (mouse_x > (x - drop_area_size) && mouse_x < (x + drop_area_size)):
+				if(mouse_y > (y - drop_area_size) && mouse_y < (y + drop_area_size)):
+					get_node(node).remove_from_group("dragable")
+					get_node(node).set_pos(Vector2(x, y))
+					get_node(node).set_opacity(1)
 
 func _process(delta):
 	dragable_dragged.set_pos(self.get_local_mouse_pos())
