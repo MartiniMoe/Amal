@@ -24,7 +24,6 @@ func get_direction():
 
 func set_direction(dir):
 	direction = dir
-	return direction
 
 func get_collectables():
 	return collectables

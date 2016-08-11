@@ -1,7 +1,7 @@
 extends Navigation2D
 
 # Member variables
-const SPEED = 160.0
+const SPEED = 180.0
 const TALK_DISTANCE = 50
 
 export var scale_enabled = false
