@@ -1,7 +1,7 @@
 extends Navigation2D
 
 # Member variables
-const SPEED = 160.0
+const SPEED = 180.0
 const TALK_DISTANCE = 50
 
 export var scale_enabled = false
@@ -52,15 +52,10 @@ func _process(delta):
 			get_node("player/AnimationPlayer").stop_all()
 			set_process(false)
 			var npc_near = check_npc_near()
-			if !game_state.talked_to_boyAndGirl && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("boyAndGirl"):
-				game_state.talked_to_boyAndGirl = true
-				npc_clicked.show_dialogue()
-				for portal in get_children():
-					if portal.is_in_group("portal"):
-						portal.show()
-				
+			if (npc_near != null && npc_clicked != null) && (npc_clicked == npc_near) && (dialogue_running == false):
+					npc_clicked.show_dialogue()
 			
-			if get_node("player/Area2D").get_overlapping_areas().size() > 0 && game_state.talked_to_boyAndGirl:
+			if get_node("player/Area2D").get_overlapping_areas().size() > 0:
 				get_node("player/Area2D").get_overlapping_areas()[0].teleport()
 	else:
 		set_process(false)
@@ -78,6 +73,7 @@ func check_npc_clicked(clickPos):
 			if (clickPos.x > (npc_x - npc_width/2) && clickPos.x < (npc_x + npc_width/2)):
 				if (clickPos.y > (npc_y - npc_height/2) && clickPos.y < (npc_y + npc_height/2)):
 					return npc
+#			npc.hide_dialogue()
 	return null
 
 func check_npc_near():
@@ -136,10 +132,6 @@ func _ready():
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
-	if game_state.talked_to_boyAndGirl == false:
-		for portal in get_children():
-					if portal.is_in_group("portal"):
-						portal.hide()
 	set_process_input(true)
 
 
