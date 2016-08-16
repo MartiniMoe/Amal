@@ -66,21 +66,28 @@ func check_npc_clicked(clickPos):
 	var character = get_node("player")
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
-			if npc.is_in_group("arafat") && game_state.arafat == false:
-				print(npc.get_name())
-				npc_clicked = npc
-				npc.show_dialogue()
-				game_state.arafat = true
-				get_node("Arafat/Arafat_Interaction").hide()
-				return npc
 			var npc_x = npc.get_pos().x
 			var npc_y = npc.get_pos().y
 			var npc_width = npc.get_region_rect().size.x
 			var npc_height = npc.get_region_rect().size.y
 			if (clickPos.x > (npc_x - npc_width/2) && clickPos.x < (npc_x + npc_width/2)):
+				print("true x")
 				if (clickPos.y > (npc_y - npc_height/2) && clickPos.y < (npc_y + npc_height/2)):
+					print("true y")
 					print(npc.get_name())
-					return npc
+					if npc.is_in_group("arafat") && game_state.arafat == false:
+						npc_clicked = npc
+						npc.show_dialogue()
+						game_state.arafat = true
+						get_node("Arafat/Arafat_Interaction").hide()
+						return npc
+					if npc.is_in_group("memorial") && game_state.memorial == false:
+						npc_clicked = npc
+						npc.show_dialogue()
+						game_state.memorial = true
+						get_node("Memorials2").hide()
+						get_node("Memorials1").hide()
+						return npc
 #			npc.hide_dialogue()
 	return null
 
