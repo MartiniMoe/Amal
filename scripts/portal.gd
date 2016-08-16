@@ -10,7 +10,6 @@ func teleport():
 	transition.set_text_counter(0)
 	transition.fade_to(target_scene)
 
-
 func _on_Portal_mouse_enter():
 	get_node("Particles2D").set_emitting(true)
 
