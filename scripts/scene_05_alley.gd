@@ -56,7 +56,13 @@ func _process(delta):
 					npc_clicked.show_dialogue()
 			
 			if get_node("player/Area2D").get_overlapping_areas().size() > 0:
-				get_node("player/Area2D").get_overlapping_areas()[0].teleport()
+				if get_node("player/Area2D").get_overlapping_areas()[0].is_in_group("portal") == true:
+					if game_state.talked_to_oldWoman == false:
+						return
+					else:
+						get_node("player/Area2D").get_overlapping_areas()[0].teleport()
+				else:
+					get_node("player/Area2D").get_overlapping_areas()[0].teleport()
 	else:
 		set_process(false)
 
@@ -133,7 +139,9 @@ func _ready():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
 	if game_state.talked_to_oldWoman == false:
-		get_node("PortalForward").hide()
+		for portal in get_children():
+					if portal.is_in_group("portal"):
+						portal.hide()
 	set_process_input(true)
 
 
