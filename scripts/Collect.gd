@@ -5,6 +5,7 @@ var item_clicked = null
 var item_hovered = null
 var items_collectable = 0
 export var path = ""
+export var collectableObject = ""
 
 func check_item_clicked(e):
 	for item in get_children():
@@ -48,6 +49,10 @@ func _input(event):
 			item_clicked.set_hidden(true)
 			items_collected += 1
 			if(items_collected >= transition.get_collectables()):
+				if(collectableObject == "marbles"):
+					game_state.collected_marbles = true
+				if(collectableObject == "computer"):
+					game_state.collected_computer = true
 				transition.get_text_counter()
 				transition.fade_to(transition.get_path())
 

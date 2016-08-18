@@ -9,6 +9,7 @@ func _ready():
 	counter = transition.get_text_counter()
 	pass
 
+
 func show_dialogue():
 	if(!self.is_visible()):
 		return

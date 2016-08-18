@@ -52,11 +52,17 @@ func _process(delta):
 			get_node("player/AnimationPlayer").stop_all()
 			set_process(false)
 			var npc_near = check_npc_near()
-			if !game_state.talked_to_grandchild && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("grandchild"):
-				game_state.talked_to_grandchild = true
+			if !game_state.talked_to_grandchild_01 && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("grandchild"):
+				game_state.talked_to_grandchild_01 = true
 				npc_clicked.show_dialogue()
+			if !game_state.talked_to_grandchild_02 && game_state.collected_computer && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("grandchild"):
+				game_state.talked_to_grandchild_02 = true
+				get_node("npc_grandchild").counter = 7
+				npc_clicked.show_dialogue()
+				get_node("PortalBack").show()
+				
 			
-			if get_node("player/Area2D").get_overlapping_areas().size() > 0 && game_state.talked_to_grandchild:
+			if get_node("player/Area2D").get_overlapping_areas().size() > 0 && game_state.collected_computer:
 				get_node("player/Area2D").get_overlapping_areas()[0].teleport()
 	else:
 		set_process(false)
@@ -132,6 +138,8 @@ func _ready():
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
+	if !game_state.collected_computer:
+		get_node("PortalBack").hide()
 	set_process_input(true)
 
 

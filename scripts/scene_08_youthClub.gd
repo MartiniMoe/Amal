@@ -52,16 +52,23 @@ func _process(delta):
 			get_node("player/AnimationPlayer").stop_all()
 			set_process(false)
 			var npc_near = check_npc_near()
-			if !game_state.talked_to_boyAndGirl && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("boyAndGirl"):
-				game_state.talked_to_boyAndGirl = true
+			if !game_state.talked_to_boyAndGirl_01 && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("boyAndGirl"):
+				game_state.talked_to_boyAndGirl_01 = true
+				npc_clicked.show_dialogue()
+			if !game_state.talked_to_boyAndGirl_02 && game_state.collected_marbles && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("boyAndGirl"):
+				game_state.talked_to_boyAndGirl_02 = true
+				get_node("npc_boyAndGirl").counter = 8
 				npc_clicked.show_dialogue()
 				for portal in get_children():
-					if portal.is_in_group("portal"):
+					if portal.is_in_group("portal") && portal.get_name() == "PortalForward":
 						portal.show()
 				
 			
-			if get_node("player/Area2D").get_overlapping_areas().size() > 0 && game_state.talked_to_boyAndGirl:
-				get_node("player/Area2D").get_overlapping_areas()[0].teleport()
+			if get_node("player/Area2D").get_overlapping_areas().size() > 0 && game_state.talked_to_boyAndGirl_02:
+				if !game_state.talked_to_grandchild_02 && get_node("player/Area2D").get_overlapping_areas()[0].get_name() == "PortalBack":
+					return
+				else:
+					get_node("player/Area2D").get_overlapping_areas()[0].teleport()
 	else:
 		set_process(false)
 
@@ -136,10 +143,14 @@ func _ready():
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
-	if game_state.talked_to_boyAndGirl == false:
+	if game_state.talked_to_boyAndGirl_02 == false:
 		for portal in get_children():
 					if portal.is_in_group("portal"):
 						portal.hide()
+	if game_state.collected_marbles && !game_state.talked_to_grandchild_02:
+		get_node("PortalBack").hide()
+	else:
+		get_node("PortalBack").show()
 	set_process_input(true)
 
 
