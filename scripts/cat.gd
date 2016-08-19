@@ -14,9 +14,12 @@ func _input(event):
 			var cat_h = get_node("Cat").get_region_rect().size.y
 			if (event.x > (cat_x - cat_w/2) && event.x < (cat_x + cat_w/2)):
 				if(event.y > (cat_y - cat_h/2) && event.y < (cat_y + cat_h/2)):
-					get_node("Cat").set_pos(Vector2(100, 100))
+					get_node("Cat").set_pos(Vector2(1153, 649))
 					set_process(false)
 					set_fixed_process(false)
+					game_state.chased_cat = true
+					transition.fade_to(transition.set_path("res://scenes/scene_10_findCat.scn"))
+					
 
 # making the cat move constantly #
 func _process(delta):

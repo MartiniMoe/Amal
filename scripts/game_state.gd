@@ -14,3 +14,4 @@ export var collected_computer = false
 export var bike = false
 export var cat_seen = false
 export var move_cat = false
+export var chased_cat = false

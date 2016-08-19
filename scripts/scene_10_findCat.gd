@@ -25,13 +25,6 @@ var mouseOver = null
 
 func _process(delta):
 		
-	if !game_state.move_cat:
-		get_node("Cat").set_pos(get_node("Cat").get_pos() + Vector2(100,0) * 20 * delta)
-		if (get_node("Cat").get_pos().x > 2500):
-			npc_clicked = null
-			game_state.move_cat = true
-		
-		
 	if (path.size() > 1):
 		var to_walk = delta*SPEED
 		
@@ -61,11 +54,9 @@ func _process(delta):
 			var npc_near = check_npc_near()
 			if (npc_near != null && npc_clicked != null) && (npc_clicked == npc_near) && (dialogue_running == false):
 					npc_clicked.show_dialogue()
+			
 			if get_node("player/Area2D").get_overlapping_areas().size() > 0:
-				if get_node("player/Area2D").get_overlapping_areas()[0].is_in_group("portal") == true && !game_state.bike:
-					return
-				else:
-					get_node("player/Area2D").get_overlapping_areas()[0].teleport()
+				get_node("player/Area2D").get_overlapping_areas()[0].teleport()
 	else:
 		set_process(false)
 
@@ -74,14 +65,17 @@ func _process(delta):
 func check_npc_clicked(clickPos):
 	var character = get_node("player")
 	for npc in get_children():
-		if npc.is_in_group("npc_dialogue"):
+		#if npc.is_in_group("npc_dialogue"):
+		if npc.is_in_group("cat"):
 			var npc_x = npc.get_pos().x
 			var npc_y = npc.get_pos().y
 			var npc_width = npc.get_region_rect().size.x
 			var npc_height = npc.get_region_rect().size.y
+			print(npc_height)
 			if (clickPos.x > (npc_x - npc_width/2) && clickPos.x < (npc_x + npc_width/2)):
 				if (clickPos.y > (npc_y - npc_height/2) && clickPos.y < (npc_y + npc_height/2)):
-					return npc
+					transition.fade_to(transition.set_path("res://scenes/scene_cat_chase.scn"))
+					#return npc
 #			npc.hide_dialogue()
 	return null
 
@@ -112,6 +106,7 @@ func _input(event):
 		begin = get_node("player").get_pos()
 		
 		npc_clicked = check_npc_clicked(event.pos - get_pos())
+			
 		
 		# Mouse to local navigation coordinates
 		end = event.pos - get_pos()
@@ -141,27 +136,11 @@ func _ready():
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
-	if game_state.bike == false:
-		for portal in get_children():
-					if portal.is_in_group("portal"):
-						portal.hide()
-	if game_state.talked_to_grandchild_02 == false:
+	if game_state.chased_cat:
 		get_node("Cat").hide()
-		for bike in get_children():
-			if bike.is_in_group("bike"):
-				bike.hide()
-	else:
-		get_node("Cat").show_dialogue()
-		npc_clicked = get_node("Cat")
-		game_state.cat_seen = true
-	if game_state.bike == true:
-		get_node("Cat").hide()
-		for bike in get_children():
-			if bike.is_in_group("bike"):
-				bike.hide()
-		get_node("Conversation").show_dialogue()
-		npc_clicked = get_node("Conversation")
+		get_node("player/Key1").show()
 	set_process_input(true)
+
 
 
 # when pressing the key, collect it #
@@ -177,7 +156,5 @@ func npc_bubble_clicked():
 	else:
 		if npc_clicked.counter >= npc_clicked.npc_text.size():
 			npc_clicked.hide_dialogue()
-			if npc_clicked.is_in_group("bike"):
-				transition.fade_to(transition.set_path("res://scenes/scene_create_bike_new.scn"))
 		else:
 			npc_clicked.show_dialogue()
