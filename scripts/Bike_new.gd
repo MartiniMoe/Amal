@@ -4,6 +4,7 @@ extends Navigation2D
 var dragable_dragged = null
 var e = null
 var process_running = false
+var counter = 0
 
 func check_dragable_dragged(e):
 	for g in get_children():
@@ -14,7 +15,6 @@ func check_dragable_dragged(e):
 			var g_h = g.get_region_rect().size.y
 			if (e.x > (g_x - g_w/2) && e.x < (g_x + g_w/2)):
 				if(e.y > (g_y - g_h/2) && e.y < (g_y + g_h/2)):
-					print(g.get_name())
 					return g;
 	return null;
 
@@ -60,9 +60,15 @@ func check_correct_node(node, x, y):
 					get_node(node).remove_from_group("dragable")
 					get_node(node).set_pos(Vector2(x, y))
 					get_node(node).set_opacity(1)
+					counter = counter + 1
+					print(counter)
+					if (counter >= 6):
+						game_state.bike = true
+						transition.fade_to(transition.set_path("res://scenes/scene_07_entrance_youthClub.scn"))
 
 func _process(delta):
 	dragable_dragged.set_pos(self.get_local_mouse_pos())
+	
 
 
 func _ready():
