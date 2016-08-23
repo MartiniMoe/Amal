@@ -65,7 +65,6 @@ func _process(delta):
 func check_npc_clicked(clickPos):
 	var character = get_node("player")
 	for npc in get_children():
-		#if npc.is_in_group("npc_dialogue"):
 		if npc.is_in_group("cat"):
 			var npc_x = npc.get_pos().x
 			var npc_y = npc.get_pos().y
@@ -75,8 +74,6 @@ func check_npc_clicked(clickPos):
 			if (clickPos.x > (npc_x - npc_width/2) && clickPos.x < (npc_x + npc_width/2)):
 				if (clickPos.y > (npc_y - npc_height/2) && clickPos.y < (npc_y + npc_height/2)):
 					transition.fade_to(transition.set_path("res://scenes/scene_cat_chase.scn"))
-					#return npc
-#			npc.hide_dialogue()
 	return null
 
 func check_npc_near():
@@ -107,7 +104,6 @@ func _input(event):
 		
 		npc_clicked = check_npc_clicked(event.pos - get_pos())
 			
-		
 		# Mouse to local navigation coordinates
 		end = event.pos - get_pos()
 		_update_path()
@@ -130,6 +126,7 @@ func set_playerPos():
 
 
 func _ready():
+	SPEED = game_state.player_speed
 	set_playerPos()
 	scale_player()
 	dialogue_running = false
@@ -156,7 +153,6 @@ func _on_Key_pressed():
 
 func npc_bubble_clicked():
 	if get_node("npc_bubble/text_interface_engine")._buffer.size() > 0:
-		#get_node("npc_bubble/text_interface_engine").set_buff_speed(1.0)
 		get_node("npc_bubble/text_interface_engine").set_turbomode(true)
 	else:
 		if npc_clicked.counter >= npc_clicked.npc_text.size():

@@ -18,3 +18,5 @@ export var move_cat = true
 export var chased_cat = false
 export var congratulations = false
 export var end = false
+
+export var player_speed = 180.0
