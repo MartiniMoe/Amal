@@ -41,7 +41,7 @@ func _input(event):
 		else:
 			for item in get_children():
 				if (item.is_in_group("collectable")):
-					item.set_opacity(0.4);
+					item.set_opacity(0.4)
 	
 	if (event.type == InputEvent.MOUSE_BUTTON && event.pressed && event.button_index == 1):
 		item_clicked = check_item_clicked(event)

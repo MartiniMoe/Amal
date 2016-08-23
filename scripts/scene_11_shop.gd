@@ -10,8 +10,6 @@ export var scale_factor = 500
 var npc_clicked = null
 var dialogue_running = null
 
-var item_held = null
-
 var begin = Vector2()
 var end = Vector2()
 var path = []
@@ -54,7 +52,7 @@ func _process(delta):
 			var npc_near = check_npc_near()
 			if game_state.talked_to_oldWoman && !game_state.talked_to_oldWoman_02 && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("oldWoman"):
 				game_state.talked_to_oldWoman_02 = true
-				gane_state.end = true
+				game_state.end = true
 				npc_clicked.show_dialogue()
 				get_node("player/Key1").hide()
 				get_node("npc_test/Key2").show()
@@ -67,7 +65,6 @@ func _process(delta):
 				get_node("player/Area2D").get_overlapping_areas()[0].teleport()
 	else:
 		set_process(false)
-
 
 
 func check_npc_clicked(clickPos):
@@ -115,10 +112,12 @@ func _input(event):
 		end = event.pos - get_pos()
 		_update_path()
 
+
 func scale_player():
 	if scale_enabled:
 		var scale = log(get_node("player").get_pos().y/scale_factor)
 		get_node("player").set_scale(Vector2(scale, scale))
+
 
 func set_playerPos():
 	if(transition.get_direction() == 0):
@@ -131,8 +130,8 @@ func set_playerPos():
 		return
 
 
-
 func _ready():
+	SPEED = game_state.player_speed
 	set_playerPos()
 	scale_player()
 	dialogue_running = false
@@ -144,13 +143,6 @@ func _ready():
 					if portal.is_in_group("portal"):
 						portal.hide()
 	set_process_input(true)
-
-
-
-# when pressing the key, collect it #
-func _on_Key_pressed():
-	item_held = "sprites/key.png"
-	get_node("Key").hide()
 
 
 func npc_bubble_clicked():

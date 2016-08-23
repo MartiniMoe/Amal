@@ -130,6 +130,7 @@ func set_playerPos():
 
 
 func _ready():
+	SPEED = game_state.player_speed
 	set_playerPos()
 	scale_player()
 	dialogue_running = false
