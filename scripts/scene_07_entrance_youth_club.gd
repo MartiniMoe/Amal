@@ -136,7 +136,7 @@ func set_playerPos():
 
 
 func _ready():
-	print(game_state.talked_to_grandchild_02)
+	SPEED = game_state.player_speed
 	set_playerPos()
 	scale_player()
 	dialogue_running = false
