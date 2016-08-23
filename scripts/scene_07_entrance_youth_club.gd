@@ -161,8 +161,9 @@ func _ready():
 		for bike in get_children():
 			if bike.is_in_group("bike"):
 				bike.hide()
-		get_node("Conversation").show_dialogue()
-		npc_clicked = get_node("Conversation")
+		if !game_state.chased_cat:
+			get_node("Conversation").show_dialogue()
+			npc_clicked = get_node("Conversation")
 	set_process_input(true)
 
 

@@ -140,6 +140,8 @@ func _ready():
 		for portal in get_children():
 					if portal.is_in_group("portal"):
 						portal.hide()
+	if game_state.chased_cat:
+		get_node("npc_test").hide()
 	set_process_input(true)
 
 
