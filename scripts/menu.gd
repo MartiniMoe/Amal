@@ -16,3 +16,7 @@ func _on_btn_exit_pressed():
 func _on_btn_german_pressed():
 	TranslationServer.set_locale("de")
 	transition.fade_to("res://scenes/scene_01_entrance.scn")
+
+func _on_btn_esperanto_pressed():
+	TranslationServer.set_locale("sr")
+	transition.fade_to("res://scenes/scene_01_entrance.scn")
