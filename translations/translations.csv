@@ -50,6 +50,7 @@ Bicycle_01_Amal,Maybe I can build a bicycle with this stuff. I should collect th
 Bicycle_02_Amal,"We have made it! Now help me to catch the cat. Be careful, she is very fast!",Wir haben es geschafft! Jetzt können wir die Katze fangen. Aber sei gewarnt: Sie ist schnell!,
 Cat_02_Amal,"Wow, you are great! We have got the key. We need to find the old woman now.","Geschafft, wir haben den Schlüssel! Das hast du toll gemacht. Jetzt müssen wir nur noch die alte Dame finden.",
 ,,,
-End_01_Woman,Thank God. You found it! I am so happy. You are such a great girl. You mean hope for all of us. Thank you so much!,Gott sei Dank. Du hast den Schlüssel gefunden! Du bist ein guter Junge. Du bedeutest Hoffnung für uns alle. Vielen Dank!,"alhamd lillah, la2ete almofta7 ! Ana mabsuta. Ente jad benet ra2e3a, bt3teena klna alamal. Shukran kteer."
+End_01_Amal,"Hello again. Look, I found your key. A cat stole it.","Hallo. Sehen Sie mal, ich habe ihren Schlüssel gefunden. Eine Katze hatte ihn gestohlen.",
+End_02_Woman,Thank God. You found it! I am so happy. You are such a great girl. You mean hope for all of us. Thank you so much!,Gott sei Dank. Du hast den Schlüssel gefunden! Du bist ein guter Junge. Du bedeutest Hoffnung für uns alle. Vielen Dank!,"alhamd lillah, la2ete almofta7 ! Ana mabsuta. Ente jad benet ra2e3a, bt3teena klna alamal. Shukran kteer."
 ,,,
-End_02_Amal,"Thanks for your help. You did a great job and I hope you had fun. Maybe we see each other again, some time. Bye!",Vielen Dank für deine Hilfe. Du hast das wirklich gut gemacht und ich hoffe du hattest Spaß. Vielleicht sehen wir uns mal wieder. Bis dann.,
+End_03_Amal,"Thanks for your help. You did a great job and I hope you had fun. Maybe we see each other again, some time. Bye!",Vielen Dank für deine Hilfe. Du hast das wirklich gut gemacht und ich hoffe du hattest Spaß. Vielleicht sehen wir uns mal wieder. Bis dann.,
