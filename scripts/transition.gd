@@ -5,6 +5,7 @@ var direction
 var text_counter = 0
 var collectables = 0
 var new_path = ""
+var conv_pos
 
 
 # PUBLIC FUNCTION. CALLED WHENEVER YOU WANT TO CHANGE SCENE
@@ -45,3 +46,9 @@ func get_path():
 func set_path(pathName):
 	new_path = pathName
 	return new_path
+
+func get_convPos():
+	return conv_pos
+
+func set_convPos(convPosition):
+	conv_pos = convPosition

@@ -53,6 +53,7 @@ func _input(event):
 					game_state.collected_marbles = true
 				if(collectableObject == "computer"):
 					game_state.collected_computer = true
+					transition.set_direction(3)
 				transition.get_text_counter()
 				transition.fade_to(transition.get_path())
 

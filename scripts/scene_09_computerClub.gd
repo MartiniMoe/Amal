@@ -54,6 +54,7 @@ func _process(delta):
 			var npc_near = check_npc_near()
 			if !game_state.talked_to_grandchild_01 && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("grandchild"):
 				game_state.talked_to_grandchild_01 = true
+				transition.set_convPos(get_node("player").get_pos())
 				npc_clicked.show_dialogue()
 			if !game_state.talked_to_grandchild_02 && game_state.collected_computer && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("grandchild"):
 				game_state.talked_to_grandchild_02 = true
@@ -126,6 +127,8 @@ func set_playerPos():
 		get_node("player").set_pos(left_corner)
 	if(transition.get_direction() == 2):
 		get_node("player").set_pos(middle)
+	if(transition.get_direction() == 3):
+		get_node("player").set_pos(transition.get_convPos())
 	else:
 		return
 

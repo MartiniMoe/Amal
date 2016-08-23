@@ -25,11 +25,12 @@ var mouseOver = null
 
 func _process(delta):
 		
-	if !game_state.move_cat:
+	if game_state.talked_to_grandchild_02 && game_state.move_cat:
 		get_node("Cat").set_pos(get_node("Cat").get_pos() + Vector2(100,0) * 20 * delta)
 		if (get_node("Cat").get_pos().x > 2500):
 			npc_clicked = null
-			game_state.move_cat = true
+			game_state.move_cat = false
+			get_node("Cat").free()
 		
 		
 	if (path.size() > 1):
@@ -135,6 +136,7 @@ func set_playerPos():
 
 
 func _ready():
+	print(game_state.talked_to_grandchild_02)
 	set_playerPos()
 	scale_player()
 	dialogue_running = false
@@ -143,8 +145,8 @@ func _ready():
 			npc.hide_dialogue()
 	if game_state.bike == false:
 		for portal in get_children():
-					if portal.is_in_group("portal"):
-						portal.hide()
+			if portal.is_in_group("portal"):
+				portal.hide()
 	if game_state.talked_to_grandchild_02 == false:
 		get_node("Cat").hide()
 		for bike in get_children():
