@@ -56,7 +56,7 @@ func _process(delta):
 					npc_clicked.show_dialogue()
 					
 			
-			if get_node("player/Area2D").get_overlapping_areas().size() > 0 && game_state.end == true:
+			if get_node("player/Area2D").get_overlapping_areas().size() > 0:
 				get_node("player/Area2D").get_overlapping_areas()[0].teleport()
 	else:
 		set_process(false)
