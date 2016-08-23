@@ -138,9 +138,12 @@ func _ready():
 			npc.hide_dialogue()
 	if game_state.chased_cat:
 		get_node("Cat").hide()
-		get_node("player/Key1").show()
-		get_node("Conversation").show_dialogue()
-		npc_clicked = get_node("Conversation")
+		if !game_state.talked_to_oldWoman_02:
+			get_node("player/Key1").show()
+		if !game_state.congratulations:
+			get_node("Conversation").show_dialogue()
+			npc_clicked = get_node("Conversation")
+			game_state.congratulations = true
 	set_process_input(true)
 
 
