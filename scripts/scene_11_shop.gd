@@ -54,7 +54,7 @@ func _process(delta):
 			var npc_near = check_npc_near()
 			if game_state.talked_to_oldWoman && !game_state.talked_to_oldWoman_02 && npc_near != null && npc_clicked != null && npc_clicked == npc_near && dialogue_running == false && npc_clicked.is_in_group("oldWoman"):
 				game_state.talked_to_oldWoman_02 = true
-				gane_state.end = true
+				game_state.end = true
 				npc_clicked.show_dialogue()
 				get_node("player/Key1").hide()
 				get_node("npc_test/Key2").show()
