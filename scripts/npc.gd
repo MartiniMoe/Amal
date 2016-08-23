@@ -24,7 +24,7 @@ func show_dialogue():
 			else:
 				#npc_text[counter].to_utf8()
 				#get_node("../npc_bubble/text_interface_engine").buff_text(npc_text[counter] + "\n", 0.1)
-				get_node("../npc_bubble/text_interface_engine").buff_text(npc_text[counter].right(npc_text[counter].find_last("_")+1) + ": ")
+				#get_node("../npc_bubble/text_interface_engine").buff_text(npc_text[counter].right(npc_text[counter].find_last("_")+1) + ": ")
 				get_node("../npc_bubble/text_interface_engine").buff_text(tr(npc_text[counter]) + "\n", 0.1)
 				get_node("../npc_bubble/text_interface_engine").buff_silence(0.1)
 			if(npc_text[counter] == "Club_08_Amal"):
