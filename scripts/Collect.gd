@@ -56,6 +56,7 @@ func _input(event):
 					transition.set_direction(3)
 				transition.get_text_counter()
 				transition.fade_to(transition.get_path())
+				
 
 func _ready():
 	set_process_input(true)
