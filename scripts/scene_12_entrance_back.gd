@@ -134,14 +134,14 @@ func _ready():
 	for npc in get_children():
 		if npc.is_in_group("npc_dialogue"):
 			npc.hide_dialogue()
-	if game_state.end == false:
+	if game_state.end:
 		for portal in get_children():
 			if portal.is_in_group("portal"):
 				portal.hide()
 		npc_clicked = get_node("end")
 		get_node("end").show_dialogue()
-		game_state.end = true
 	set_process_input(true)
+
 
 
 # when pressing the key, collect it #
