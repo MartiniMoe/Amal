@@ -6,5 +6,8 @@ Its development started in the context of the [yallah exchange program](http://y
 
 Amal is completely open source and is developed with the open source [godot engine](http://godotengine.org).
 
+# Screenshots
+[Here](http://yallah.exchange/amal-cultural-exchange-videogame/)
+
 # Download
 [Here](https://github.com/MartiniMoe/Amal/releases/latest)
